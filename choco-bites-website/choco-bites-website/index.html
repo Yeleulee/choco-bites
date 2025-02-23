@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Choco Bites</title>
+    <title>Choco Bite - Home</title>
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome CDN in case you need it for other icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
     <div class="video-container">
@@ -13,31 +15,75 @@
             <source src="videos/roll1.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <!-- Secondary video element (hidden initially) -->
-        <video autoplay muted loop id="secondary-video">
-            <source src="videos/roll.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
     </div>
     <nav class="navbar">
         <div class="logo">
-            <img src="images/469993265_1096654491937713_5189619529443694030_n-removebg-preview.png" alt="Choco Bites Logo">
+            <a href="index.html">
+                <img src="images/469993265_1096654491937713_5189619529443694030_n-removebg-preview.png" alt="Choco Bites Logo">
+            </a>
         </div>
+        <!-- Menu Toggle Button for Mobile -->
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
         <div class="menu-container">
             <ul class="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Shop.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
     
-    <!-- Welcome Text Overlay -->
-    <div class="welcome-text">
-        <h1>Welcome to <br>Choco Bite! </h1>
-        <p>Nothing tastes better than Choco Bite cookies!</p>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <!-- Welcome Text Overlay -->
+        <div class="welcome-text fade-out-on-scroll">
+            <h1>Welcome to <br>Choco Bite!</h1>
+            <p>Nothing tastes better than Choco Bite cookies!</p>
+            <a href="Shop.html" class="cta-btn">Shop Now</a>
+        </div>
+    </section>
+    
+    <!-- Slider Section (appears below the hero section when scrolling) -->
+    <section class="slider-section">
+        <div class="slider">
+            <!-- Slider List (each .item can be an image or video) -->
+            <div class="list">
+                <!-- Slider Item 1: Image Example -->
+                <div class="item active">
+                    <img src="images/insta_img1.jpg" alt="Instagram Image">
+                    <div class="content">
+                        <div class="title">Instagram Image</div>
+                        <div class="type">Photo</div>
+                        <p>A beautiful moment captured.</p>
+                    </div>
+                </div>
+                <!-- Slider Item 2: Video Example -->
+                <div class="item">
+                    <video autoplay muted loop playsinline>
+                        <source src="videos/insta_video1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="content">
+                        <div class="title">Instagram Video</div>
+                        <div class="type">Video</div>
+                        <p>Enjoy the motion and vibe.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thumbnail Navigation -->
+            <div class="thumbnail">
+                <div class="item"><!-- Removed invalid image source -->
+                    <img src="images/insta_img1.jpg" alt="Thumbnail 1">
+                </div>
+                <div class="item">
+                    <!-- Use a thumbnail image for video -->
+                    <img src="images/insta_video_thumb.jpg" alt="Thumbnail 2">
+                </div>
+            </div>
+        </div>
+    </section>
     
     <script src="js/main.js"></script>
 </body>

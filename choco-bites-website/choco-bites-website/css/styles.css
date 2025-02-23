@@ -1,181 +1,424 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+  font-family: 'Poppins', sans-serif; 
 }
 
-/* Reset defaults and ensure full viewport usage */
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
+html, body { 
+  width: 100%; 
+  height: 100%; 
+  overflow-x: hidden; 
+  background: linear-gradient(315deg, #fff 0%, #d7e1ec 74%); 
 }
 
-/* Fullscreen video container */
-.video-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    z-index: -1;
+body { 
+  background-color: #000; 
+  color: #eee; 
+  font-size: 12px; 
 }
 
-/* Ensure all video elements fully cover the viewport */
-.video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    transition: opacity 0.5s ease;
+a { 
+  text-decoration: none; 
+  color: inherit; 
 }
 
-/* Additional rules for specific video IDs (if needed) */
-#background-video-1,
-#background-video-2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: opacity 0.5s ease;
+/* Header & Navigation */
+header { 
+  width: 1140px; 
+  max-width: 80%; 
+  margin: auto; 
+  height: 50px; 
+  display: flex; 
+  align-items: center; 
+  position: relative; 
+  z-index: 100; 
 }
 
-/* Ensure secondary video fills the screen too */
-#secondary-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    transition: opacity 0.5s ease;
+header nav a { 
+  color: #eee; 
+  margin-right: 5px; 
+  padding: 5px 10px; 
+  transition: 0.2s; 
 }
 
-/* Update navbar style to use flex layout */
-.navbar {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 2;
-    background: transparent;
+header nav a:hover,
+header nav a.active { 
+  background: #14ff72cb; 
+  border-radius: 2px; 
 }
 
-/* Remove absolute positioning for the logo */
-.logo {
-    /* Removed explicit positioning to allow natural flex layout */
+/* Video Container & Overlay */
+.video-container { 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100vw; 
+  height: 100vh; 
+  overflow: hidden; 
+  z-index: 0; 
 }
 
-.logo img {
-    height: 120px; /* increased size */
-    transition: transform 0.3s ease;
+.video-container video { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  transition: opacity 0.5s ease; 
 }
 
-.logo img:hover {
-    transform: rotate(5deg) scale(1.1);
+.video-overlay { 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100vw; 
+  height: 100vh; 
+  background: rgba(0, 0, 0, 0.5); 
+  z-index: 1; 
 }
 
-.logo img:active {
-    transform: scale(1.2); /* scales up on click */
+/* Navbar */
+.navbar { 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  padding: 10px 20px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  z-index: 1000; 
+  background-color: transparent; 
 }
 
-/* Adjust menu container (uses navbar flex layout) */
-.menu-container {
-    /* No additional styles needed */
+.navbar .logo { 
+  position: static; 
 }
 
-/* Center the menu within the available space */
-.menu {
-    list-style: none;
-    display: flex;
-    gap: 40px;
+.navbar .logo img { 
+  height: 80px; /* Increased size */
+  transition: transform 0.3s ease, filter 0.3s ease; 
 }
 
-.menu li a {
-    text-decoration: none;
-    color: #fff; /* menu text in white */
-    font-size: 18px;
-    font-weight: bold;
-    transition: transform 0.3s ease, color 0.3s ease;
+.navbar .logo img:hover { 
+  transform: scale(1.1); 
+  filter: brightness(1.1); 
 }
 
-.menu li a:hover {
-    color: #f0c040;
-    transform: scale(1.1);
+/* Menu */
+.menu { 
+  list-style: none; 
+  display: flex; 
+  gap: 20px; 
+  flex-wrap: wrap; 
+  align-items: center; 
+  justify-content: center; 
 }
 
-/* Updated welcome text overlay without background and with animated text color */
-.welcome-text {
-    position: fixed;
-    top: 50%;             /* Center vertically */
-    left: 20px;           /* 20px from the left edge */
-    transform: translateY(-50%);  /* Adjust for perfect vertical centering */
-    max-width: 40%;       /* Limits the width so it doesn't cover too much of the video */
-    /* Removed background */
-    padding: 15px 20px;
-    border-radius: 5px;
-    /* Use animation to alternate between colors */
-    color: #fff;
-    animation: textColorCycle 10s infinite alternate;
-    text-align: left;
-    z-index: 3;           /* Ensures it sits above the video */
-    font-family: 'Helvetica Neue', sans-serif;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
+.menu li a { 
+  color: #fff; 
+  font-size: 1rem; 
+  font-weight: bold; 
+  transition: transform 0.3s ease, color 0.3s ease; 
 }
 
-@keyframes textColorCycle {
-    from {
-        color: #fff;
-    }
-    to {
-        color: #f0c040;
-    }
+.menu li a:hover { 
+  color: #9b5e0f; 
+  transform: scale(1.1); 
 }
 
-.welcome-text:hover {
-    transform: translateY(-50%) scale(1.03);  /* Slight scale effect on hover */
+/* Hero Section & Welcome Text */
+.hero-section { 
+  position: relative; 
+  height: 100vh; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: flex-start; 
+  justify-content: center; 
+  padding: 0 20px; 
+  overflow: hidden; 
+  z-index: 10; 
+  text-align: left; 
 }
 
-.welcome-text h1 {
-    font-size: 2.5rem;
-    margin: 0 0 10px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+/* Welcome Text & Animation */
+.welcome-text { 
+  position: relative; 
+  z-index: 2; 
+  max-width: 40%; 
+  padding: 15px 20px; 
+  border-radius: 5px; 
+  color: #fff; 
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3); 
+  transition: transform 0.3s ease; 
+  animation: textColorCycle 10s infinite alternate; 
+  /* Ensures the text stays in place on click */
 }
 
-.welcome-text p {
-    font-size: 1.2rem;
-    margin: 0;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+@keyframes textColorCycle { 
+  from { color: #fff; } 
+  to { color: #f0c040; } 
 }
 
-/* Mobile adjustments */
+/* Removed the hover transform to prevent shaking */
+// .welcome-text:hover { 
+//   transform: translateY(-50%) scale(1.03); 
+// }
+
+.welcome-text:active {
+  transform: none !important;
+  transition: none;
+}
+
+.welcome-text h1 { 
+  font-size: 3rem; 
+  margin-bottom: 10px; 
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5); 
+}
+
+.welcome-text p { 
+  font-size: 1.2rem; 
+  margin-bottom: 20px; 
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5); 
+}
+
+/* Shop CTA Button */
+.cta-btn,
+.btn { 
+  display: inline-block; 
+  padding: 15px 30px; 
+  font-size: 1.2rem; 
+  color: #fff; 
+  background-color: #9b5e0f; 
+  border-radius: 5px; 
+  text-decoration: none; 
+  transition: background 0.3s ease, transform 0.3s ease; 
+  margin-top: 20px; 
+  z-index: 2; 
+}
+
+.cta-btn:hover,
+.btn:hover { 
+  background-color: #f0c040; 
+  transform: scale(1.05); 
+}
+
+/* Prevent movement on click */
+.cta-btn:active,
+.btn:active { 
+  transform: none; 
+  outline: none; 
+}
+
+/* Slider */
+.slide-wrapper { 
+  display: flex; 
+  transition: opacity 0.5s ease; 
+  height: 100%; 
+}
+
+.slide { 
+  min-width: 100%; 
+  display: none; 
+}
+
+.slide.active { 
+  display: block; 
+}
+
+.hero-video { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
+
+.hero-overlay { 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  background: rgba(0,0,0,0.35); 
+  z-index: 5; 
+}
+
+/* Navigation Buttons */
+.prev, .next { 
+  position: absolute; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  background: rgba(0,0,0,0.5); 
+  border: none; 
+  color: #fff; 
+  font-size: 2rem; 
+  padding: 0.5em 1em; 
+  cursor: pointer; 
+  z-index: 10; 
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* Responsive Adjustments */
 @media screen and (max-width: 768px) {
-    .logo {
-        left: 10px;
-        top: 10px;
-    }
-    
-    .logo img {
-        height: 90px; /* slightly smaller logo for mobile layout */
-    }
-    
-    .menu {
-        gap: 20px;
-    }
-    
-    .menu li a {
-        font-size: 16px;
-    }
+  .welcome-text h1 { font-size: 2rem; }
+  .welcome-text p { font-size: 1rem; }
+  .menu li a { font-size: 0.9rem; }
+  .header-container { padding: 0.5em 1em; }
+  .logo img { height: 90px; }
+  .welcome-text { max-width: 90%; }
+  .menu { 
+    gap: 10px; 
+    flex-direction: column; 
+  }
+  .menu li a { 
+    font-size: 16px; 
+    padding: 8px 12px; 
+  }
+  .cta-btn { 
+    font-size: 1rem; 
+    padding: 12px 24px; 
+  }
+}
+
+/* Mobile Navigation */
+.nav-toggle { 
+  display: none; 
+}
+
+@media screen and (max-width: 768px) {
+  .nav-toggle { 
+    display: block; 
+    background: transparent; 
+    border: none; 
+    color: #fff; 
+    font-size: 2rem; 
+    cursor: pointer; 
+    z-index: 1100; 
+  }
+  .menu-container { 
+    display: none; 
+    width: 100%; 
+    flex-direction: column; 
+    background: rgba(0, 0, 0, 0.8); 
+    position: absolute; 
+    top: 60px; 
+    left: 0; 
+    padding: 10px 0; 
+  }
+  .menu-container.active { 
+    display: flex; 
+  }
+  .menu { 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 10px; 
+  }
+  .menu li a { 
+    font-size: 16px; 
+    padding: 8px 12px; 
+  }
+}
+
+/* Social Icons */
+.wrapper, .social-icons { 
+  position: fixed; 
+  bottom: 20px; 
+  right: 20px; 
+  display: flex; 
+  gap: 20px; 
+  z-index: 10; 
+}
+
+.wrapper .icon { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  flex-direction: column; 
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+  position: relative; 
+}
+
+.wrapper .icon span { 
+  display: block; 
+  width: 60px; 
+  height: 60px; 
+  line-height: 60px; 
+  font-size: 25px; 
+  color: #000; 
+  background: #fff; 
+  border-radius: 50%; 
+  box-shadow: 0 10px 10px rgba(0,0,0,0.1); 
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+  text-align: center; 
+  overflow: hidden; 
+}
+
+.wrapper .icon span img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  border-radius: 50%; 
+}
+
+.wrapper .icon:hover span { 
+  color: #fff; 
+}
+
+.wrapper .icon.instagram:hover span { 
+  background: #e1306c; 
+}
+
+.wrapper .icon.tiktok:hover span { 
+  background: linear-gradient(45deg, #69C9D0, #EE1D52); 
+}
+
+.wrapper .icon.telegram:hover span { 
+  background: #0088cc; 
+}
+
+.wrapper .icon .tooltip { 
+  position: absolute; 
+  bottom: 80px; 
+  background: #fff; 
+  padding: 5px 10px; 
+  border-radius: 20px; 
+  font-size: 14px; 
+  opacity: 0; 
+  transition: 0.4s; 
+  pointer-events: none; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
+.wrapper .icon:hover .tooltip { 
+  opacity: 1; 
+}
+
+.wrapper .icon .tooltip::before { 
+  content: ""; 
+  position: absolute; 
+  top: 100%; 
+  left: 50%; 
+  transform: translateX(-50%) rotate(45deg); 
+  width: 10px; 
+  height: 10px; 
+  background: #fff; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
+/* Footer */
+footer { 
+  padding: 20px; 
+  background-color: #333; 
+  color: #fff; 
+  text-align: center; 
+}
+
+footer .social-media { margin-bottom: 10px; }
+
+footer .social-media a { 
+  color: #fff; 
+  margin: 0 10px; 
+  font-size: 1.5rem; 
 }

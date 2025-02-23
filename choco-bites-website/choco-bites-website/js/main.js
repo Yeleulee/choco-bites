@@ -1,38 +1,54 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // (Optional) Navigation toggle if implemented in your HTML/CSS
+    // Navigation toggle for mobile devices
     const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    if (navToggle && navMenu) {
+    const menuContainer = document.querySelector('.menu-container');
+    if (navToggle && menuContainer) {
         navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
+            menuContainer.classList.toggle('active');
         });
     }
 
-    // Video elements from your HTML
+    // Existing video code...
     const video1 = document.getElementById('background-video-1');
-    const video2 = document.getElementById('secondary-video');
+    if (video1) {
+        video1.style.opacity = '1';
+        video1.play();
+    }
 
-    // Set initial states: video1 is fully visible; video2 is fully transparent.
-    video1.style.opacity = '1';
-    video2.style.opacity = '0';
-
-    // Start video1 and ensure video2 is paused.
-    video1.play();
-    video2.pause();
-
-    const fadeDuration = 500; // Duration of the opacity fade in ms
-
-    // After 10 seconds, crossfade from video1 to video2
-    setTimeout(() => {
-        // Begin fade by updating opacity values.
-        video1.style.opacity = '0';
-        video2.style.opacity = '1';
-
-        // After the fade duration, swap playback if needed.
-        setTimeout(() => {
-            video1.pause();
-            video2.play();
-        }, fadeDuration);
-    }, 10000);
+    // Product Video Slider JS
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    
+    // Function to update the visible slide
+    function updateSlider() {
+        slides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === currentSlide);
+        });
+    }
+    
+    // Change slide in given direction (+1 for next, -1 for previous)
+    function changeSlide(direction) {
+        currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+        updateSlider();
+    }
+    
+    // Attach event listeners to the buttons
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    
+    if (prevButton) {
+        prevButton.addEventListener('click', function() {
+            changeSlide(-1);
+        });
+    }
+    
+    if (nextButton) {
+        nextButton.addEventListener('click', function() {
+            changeSlide(1);
+        });
+    }
 });
+
+
 

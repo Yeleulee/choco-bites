@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/prodoct.css">
+    <title>c_hoco_bites - Products</title>
+</head>
+<body>
+    <!-- Sticky Header with Logo -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="brand">
+                <img src="images/469993265_1096654491937713_5189619529443694030_n-removebg-preview.png" alt="c_hoco_bites Logo">
+            </a>
+            <!-- Optional Navigation can be added here -->
+        </div>
+    </header>
+  
+    <!-- Hero Section with Integrated Video Slider -->
+    <div class="hero-section">
+        <!-- Slider Wrapper -->
+        <div class="slide-wrapper">
+            <div class="slide active">
+                <video autoplay muted loop playsinline class="hero-video">
+                    <source src="videos/BITES.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="slide">
+                <video autoplay muted loop playsinline class="hero-video">
+                    <source src="videos/BROWNIES.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="slide">
+                <video autoplay muted loop playsinline class="hero-video">
+                    <source src="videos/Cinnamon Rolls.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        
+        <!-- Navigation Buttons -->
+        <button class="prev" aria-label="Previous Slide">&#10094;</button>
+        <button class="next" aria-label="Next Slide">&#10095;</button>
+        
+        <!-- Optional overlay for better text contrast -->
+        <div class="hero-overlay"></div>
+        
+        <!-- Hero Text -->
+        <div class="hero-text">
+            <h2>Indulge in Delight</h2>
+            <p>Explore our hand-crafted cookies and freshly baked cinnamon rolls.</p>
+        </div>
+    </div>
+    <!-- End of Hero Section -->
+
+    <!-- Container for the Products Section (Shopping Section) -->
+    <div class="products-container">
+        <main class="products">
+            <!-- Product Cards go here -->
+            <article class="product-card">
+                <img src="images/cookie.jpg" alt="Signature Cookies" loading="lazy">
+                <div class="product-info">
+                    <h3>Signature Cookies</h3>
+                    <p>Crunchy on the outside, soft on the inside, our signature cookies are a delicious treat.</p>
+                    <a href="#" class="btn">Order Now</a>
+                </div>
+            </article>
+            <article class="product-card">
+                <img src="images/cinnamon-roll.jpg" alt="Cinnamon Rolls" loading="lazy">
+                <div class="product-info">
+                    <h3>Cinnamon Rolls</h3>
+                    <p>Freshly baked cinnamon rolls drizzled with sweet icing – experience a timeless indulgence.</p>
+                    <a href="#" class="btn">Order Now</a>
+                </div>
+            </article>
+            <article class="product-card">
+                <img src="images/chocolate-chip.jpg" alt="Chocolate Chip Cookies" loading="lazy">
+                <div class="product-info">
+                    <h3>Chocolate Chip Cookies</h3>
+                    <p>Enjoy our classic chocolate chip cookies, freshly baked and loaded with rich chocolate chips.</p>
+                    <a href="#" class="btn">Order Now</a>
+                </div>
+            </article>
+            <article class="product-card">
+                <img src="images/new-product.jpg" alt="New Product" loading="lazy">
+                <div class="product-info">
+                    <h3>New Product</h3>
+                    <p>Discover our latest treat, crafted with premium ingredients for a delightful experience.</p>
+                    <a href="#" class="btn">Order Now</a>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- Reference external JS for slider functionality -->
+    <script src="js/main.js"></script>
+    <footer>
+        <p>&copy; 2025 c_hoco_bites. All rights reserved.</p>
+    </footer>
+</body>
+</html>
