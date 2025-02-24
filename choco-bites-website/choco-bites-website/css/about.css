@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f7f7f7;
+  color: #333;
+}
+
+/* Keyframes for fadeInUp animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header Styles */
+.site-header {
+  background: #fff;
+  padding: 15px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  animation: fadeInUp 1s ease-out;
+}
+
+.header-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand img {
+  max-height: 300px;
+  width: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.brand img:hover {
+  transform: scale(1.05);
+}
+
+/* About Section */
+.about-section {
+  padding: 80px 20px;
+  background: #fff;
+  text-align: center;
+  animation: fadeInUp 1s ease-out;
+}
+
+.about-section .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #9b5e0f;
+  animation: fadeInUp 1s ease-out;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease-out 0.3s;
+}
+
+/* Enhanced Free Delivery Areas Section */
+.delivery-info {
+  background: linear-gradient(135deg, #9b5e0f, #f0c040);
+  color: #fff;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 40px;
+  text-align: center;
+  animation: fadeInUp 1s ease-out 0.5s;
+}
+
+.delivery-info h2 {
+  margin-top: 0;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.delivery-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.delivery-info ul li {
+  font-size: 1.2rem;
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+/* Social / Connect with Us Section Using Instagram */
+.social-info {
+  text-align: center;
+  margin-top: 40px;
+  animation: fadeInUp 1s ease-out 0.7s;
+}
+
+.social-info a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  color: #9b5e0f;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-info a:hover {
+  color: #f0c040;
+  transform: scale(1.05);
+}
+
+.social-info a img.icon {
+  width: 25px;
+  height: auto;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 0.9rem;
+  animation: fadeInUp 1s ease-out 0.9s;
+}
