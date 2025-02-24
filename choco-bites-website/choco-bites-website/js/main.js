@@ -8,45 +8,65 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Existing video code...
-    const video1 = document.getElementById('background-video-1');
-    if (video1) {
-        video1.style.opacity = '1';
-        video1.play();
+    // Handle background videos based on device width
+    const videoDesktop = document.getElementById('background-video-desktop');
+    const videoMobile = document.getElementById('background-video-mobile');
+
+    if (window.innerWidth < 768) {
+        if (videoDesktop) {
+            videoDesktop.style.display = 'none';
+            videoDesktop.pause();
+        }
+        if (videoMobile) {
+            videoMobile.style.display = 'block';
+            videoMobile.play();
+        }
+    } else {
+        if (videoMobile) {
+            videoMobile.style.display = 'none';
+            videoMobile.pause();
+        }
+        if (videoDesktop) {
+            videoDesktop.style.display = 'block';
+            videoDesktop.play();
+        }
     }
 
-    // Product Video Slider JS
+    // If using the slider on larger devices, initialize it
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
+
+    // Only initialize slider if slides exist (usually on larger devices)
+    if (totalSlides > 0) {
+        // Function to update the visible slide
+        function updateSlider() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+        }
     
-    // Function to update the visible slide
-    function updateSlider() {
-        slides.forEach((slide, index) => {
-            slide.classList.toggle('active', index === currentSlide);
-        });
-    }
+        // Change slide in given direction (+1 for next, -1 for previous)
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            updateSlider();
+        }
     
-    // Change slide in given direction (+1 for next, -1 for previous)
-    function changeSlide(direction) {
-        currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-        updateSlider();
-    }
+        // Attach event listeners to the buttons
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
     
-    // Attach event listeners to the buttons
-    const prevButton = document.querySelector('.prev');
-    const nextButton = document.querySelector('.next');
+        if (prevButton) {
+            prevButton.addEventListener('click', function() {
+                changeSlide(-1);
+            });
+        }
     
-    if (prevButton) {
-        prevButton.addEventListener('click', function() {
-            changeSlide(-1);
-        });
-    }
-    
-    if (nextButton) {
-        nextButton.addEventListener('click', function() {
-            changeSlide(1);
-        });
+        if (nextButton) {
+            nextButton.addEventListener('click', function() {
+                changeSlide(1);
+            });
+        }
     }
 });
 

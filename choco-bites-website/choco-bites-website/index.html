@@ -10,9 +10,14 @@
 </head>
 <body>
     <div class="video-container">
-        <!-- Primary video element (4K quality) -->
-        <video autoplay muted loop id="background-video-1">
-            <source src="videos/roll1.mp4" type="video/mp4">
+        <!-- Desktop Video -->
+        <video autoplay muted loop id="background-video-desktop">
+            <source src="videos/roll.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <!-- Mobile Video (lighter version, if available) -->
+        <video autoplay muted loop id="background-video-mobile" style="display:none;">
+            <source src="videos/WE MAKE.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
@@ -29,7 +34,6 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="Shop.html">Products</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -44,44 +48,15 @@
         </div>
     </section>
     
-    <!-- Slider Section (appears below the hero section when scrolling) -->
-    <section class="slider-section">
-        <div class="slider">
-            <!-- Slider List (each .item can be an image or video) -->
-            <div class="list">
-                <!-- Slider Item 1: Image Example -->
-                <div class="item active">
-                    <img src="images/insta_img1.jpg" alt="Instagram Image">
-                    <div class="content">
-                        <div class="title">Instagram Image</div>
-                        <div class="type">Photo</div>
-                        <p>A beautiful moment captured.</p>
-                    </div>
-                </div>
-                <!-- Slider Item 2: Video Example -->
-                <div class="item">
-                    <video autoplay muted loop playsinline>
-                        <source src="videos/insta_video1.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="content">
-                        <div class="title">Instagram Video</div>
-                        <div class="type">Video</div>
-                        <p>Enjoy the motion and vibe.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Thumbnail Navigation -->
-            <div class="thumbnail">
-                <div class="item"><!-- Removed invalid image source -->
-                    <img src="images/insta_img1.jpg" alt="Thumbnail 1">
-                </div>
-                <div class="item">
-                    <!-- Use a thumbnail image for video -->
-                    <img src="images/insta_video_thumb.jpg" alt="Thumbnail 2">
-                </div>
-            </div>
+    <!-- Social Media Section -->
+    <section class="social-media">
+        <div class="social-media-container">
+            <a href="https://www.instagram.com/c_hoco_bites/" target="_blank" aria-label="Visit our Instagram">
+                <img src="https://img.icons8.com/?size=100&id=eRJfQw0Zs44S&format=png&color=000000" alt="Instagram Icon" style="width:40px; height:auto;">
+            </a>
+            <a href="https://www.tiktok.com/@c_hoco_bites?lang=en" target="_blank" aria-label="Visit our TikTok">
+                <img src="https://img.icons8.com/?size=100&id=vXmXtbBOhqh2&format=png&color=000000" alt="TikTok Icon" style="width:40px; height:auto;">
+            </a>
         </div>
     </section>
     
