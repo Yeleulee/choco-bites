@@ -8,29 +8,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Handle background videos based on device width
+    // Get video elements
     const videoDesktop = document.getElementById('background-video-desktop');
     const videoMobile = document.getElementById('background-video-mobile');
 
-    if (window.innerWidth < 768) {
-        if (videoDesktop) {
-            videoDesktop.style.display = 'none';
-            videoDesktop.pause();
-        }
-        if (videoMobile) {
-            videoMobile.style.display = 'block';
-            videoMobile.play();
-        }
-    } else {
-        if (videoMobile) {
-            videoMobile.style.display = 'none';
-            videoMobile.pause();
-        }
-        if (videoDesktop) {
-            videoDesktop.style.display = 'block';
-            videoDesktop.play();
+    // Function to toggle videos based on viewport width
+    function toggleVideos() {
+        if (window.innerWidth < 768) {
+            // Mobile: Show mobile video and hide desktop
+            if (videoDesktop) {
+                videoDesktop.style.display = 'none';
+                videoDesktop.pause();
+            }
+            if (videoMobile) {
+                videoMobile.style.display = 'block';
+                videoMobile.play();
+            }
+        } else {
+            // Desktop: Show desktop video and hide mobile
+            if (videoMobile) {
+                videoMobile.style.display = 'none';
+                videoMobile.pause();
+            }
+            if (videoDesktop) {
+                videoDesktop.style.display = 'block';
+                videoDesktop.play();
+            }
         }
     }
+
+    // Call when DOM content is loaded
+    toggleVideos();
+
+    // Optionally re-check on window resize to handle changes in viewport dimensions
+    window.addEventListener('resize', toggleVideos);
 
     // If using the slider on larger devices, initialize it
     let currentSlide = 0;

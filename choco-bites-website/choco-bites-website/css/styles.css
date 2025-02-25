@@ -161,10 +161,7 @@ header nav a.active {
   to { color: #f0c040; } 
 }
 
-/* Removed the hover transform to prevent shaking */
-// .welcome-text:hover { 
-//   transform: translateY(-50%) scale(1.03); 
-// }
+
 
 .welcome-text:active {
   transform: none !important;
@@ -413,16 +410,24 @@ header nav a.active {
   bottom: 20px;
   right: 20px;
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0);
-  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.6); /* Darker background for better contrast */
+  padding: 10px 15px;
+  border-radius: 5px;
 }
 
 .social-media-container {
   display: flex;
-  gap: 15px;
   align-items: center;
+  gap: 15px;
 }
 
+.social-label {
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Icon Styling */
 .social-media-container a img {
   width: 40px;
   height: auto;
@@ -437,10 +442,13 @@ header nav a.active {
   .social-media {
     bottom: 10px;
     right: 10px;
-    padding: 5px;
+    padding: 5px 10px;
   }
   .social-media-container a img {
     width: 30px;
+  }
+  .social-label {
+    font-size: 1rem;
   }
 }
 
