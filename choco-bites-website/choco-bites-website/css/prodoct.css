@@ -175,6 +175,7 @@ header nav {
     height: auto;
     display: block;
     transition: transform 0.3s ease;
+    object-fit: cover; /* Ensures the image covers the container without distortion */
 }
 
 .product-card:hover img {
@@ -515,6 +516,7 @@ footer {
     .product-card img {
         width: 100%;
         height: auto;
+        object-fit: cover;
     }
     
     /* Adjust product info padding for mobile */
@@ -577,4 +579,5 @@ footer {
   height: auto;
   display: block;
   transition: transform 0.3s ease;
+  object-fit: cover; /* Ensures the image covers the container without distortion */
 }

@@ -452,6 +452,30 @@ header nav a.active {
   }
 }
 
+/* Order Container */
+.order-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: nowrap; /* Ensure items don't wrap */
+}
+
+.social-order-icons {
+  display: flex;
+  gap: 8px;
+}
+
+.social-order-icons a img.icon {
+  width: 25px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.social-order-icons a:hover img.icon {
+  transform: scale(1.1);
+}
+
 /* Footer */
 footer { 
   padding: 20px; 
