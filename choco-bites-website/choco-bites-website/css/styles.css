@@ -410,7 +410,7 @@ header nav a.active {
   bottom: 20px;
   right: 20px;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.6); /* Darker background for better contrast */
+  background-color: rgba(255, 255, 255, 0); /* Darker background for better contrast */
   padding: 10px 15px;
   border-radius: 5px;
 }
