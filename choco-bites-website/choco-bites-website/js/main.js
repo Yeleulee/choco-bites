@@ -14,8 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to toggle videos based on viewport width
     function toggleVideos() {
+        console.log("Viewport width:", window.innerWidth);
         if (window.innerWidth < 768) {
-            // Mobile: Show mobile video and hide desktop
+            // Mobile: Hide desktop video
             if (videoDesktop) {
                 videoDesktop.style.display = 'none';
                 videoDesktop.pause();
@@ -25,14 +26,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 videoMobile.play();
             }
         } else {
-            // Desktop: Show desktop video and hide mobile
+            // Desktop: Show desktop video
             if (videoMobile) {
-                videoMobile.style.display = 'none';
                 videoMobile.pause();
+                videoMobile.style.display = 'none';
             }
             if (videoDesktop) {
                 videoDesktop.style.display = 'block';
-                videoDesktop.play();
+                videoDesktop.play().catch(error => console.error("Video play error:", error));
             }
         }
     }
