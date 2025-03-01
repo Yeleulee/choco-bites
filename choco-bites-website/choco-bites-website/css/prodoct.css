@@ -1,66 +1,53 @@
 /* Reset and basic styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html, body {
-    width: 100%;
-    height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
-    color: #333;
+  width: 100%;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+  color: #333;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-/* HERO SECTION (combining nav and video) */
+/* HERO SECTION */
 .hero-section {
-    position: relative;
-    height: 100vh; /* Full viewport height */
-    overflow: hidden;
-    transition: opacity 0.5s ease;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
 }
 
-/* Ensure the hero section is positioned relative for button placement */
-.hero-section {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-}
-
-/* Desktop Navigation (remains transparent via header already) */
+/* Header and Navigation */
 header {
-    position: absolute; /* or fixed if you prefer */
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: transparent;
-    z-index: 10;
-}
-
-/* Ensure the navigation itself stays transparent */
-header nav {
-    background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  z-index: 10;
 }
 
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    position: relative;
-    z-index: 6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  z-index: 6;
 }
 
 .brand img {
-    width: 100px; /* Adjust as needed */
-    transition: transform 0.3s ease;
+  width: 100px;
+  transition: transform 0.3s ease;
 }
 .brand img:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 /* Navigation styling */
@@ -83,44 +70,28 @@ header nav {
     color: #f0c040;
 }
 
-/* Hero section styles */
-.hero {
-    position: relative;
-    height: 100%;
-    overflow: hidden;
-}
-
+/* Hero Video and Overlay */
 .hero-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-    display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 0;
 }
 
-/* Style for the background video (optional adjustments) */
-.hero-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* Ensure the overlay is behind the header */
 .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.35);
-    z-index: 5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+  z-index: 5;
 }
 
-/* Hero Text Styling for Desktop */
 .hero-text {
   position: absolute;
   bottom: 15%;
@@ -128,86 +99,92 @@ header nav {
   right: 5%;
   z-index: 7;
   color: #fff;
+  max-width: 50%;
   text-align: left;
-  max-width: 50%; /* Adjust as needed */
 }
 
 .hero-text h2 {
-  font-size: 3rem; /* Increase size on desktop */
+  font-size: 3rem;
   margin-bottom: 0.5em;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
 .hero-text p {
   font-size: 1.2rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
 }
 
-/* Products Section */
+/* PRODUCTS SECTION */
 .products-container {
-    background: #fafafa;
-    padding: 50px 20px;
-}
-.products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    transition: opacity 0.3s ease;
+  background: #fafafa;
+  padding: 50px 20px;
 }
 
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  transition: opacity 0.3s ease;
+}
+
+/* Product Card */
 .product-card {
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    max-width: 400px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
+/* Ensure product images fill their container */
 .product-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
-    object-fit: cover; /* Ensures the image covers the container without distortion */
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .product-card:hover img {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .product-info {
-    padding: 20px;
+  padding: 20px;
 }
 
 .product-info h3 {
-    font-size: 1.5rem;
-    color: #f0c040;
-    margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #f0c040;
+  margin-bottom: 10px;
 }
 
 .product-info p {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 20px;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-weight: 600;
 }
 
 .btn {
-  font-size: 1rem;           /* Easy to read size */
-  font-weight: 600;          /* Bold for clear readability */
-  text-transform: uppercase; /* Clear, concise, and consistent button text */
-  color: #fff;               /* High-contrast white text */
-  background-color: #9b5e0f;  /* Dark background for contrast */
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #9b5e0f;
   padding: 12px 25px;
   border-radius: 5px;
   border: none;
-  text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -216,7 +193,7 @@ header nav {
 
 .btn:hover,
 .btn:focus {
-  background-color: #f0c040; /* Lighter background on hover for visual feedback */
+  background-color: #f0c040;
 }
 
 .btn img.icon {
@@ -225,104 +202,17 @@ header nav {
   height: auto;
 }
 
-/* Product Video Slider Section */
-.product-video-slider {
-  position: relative;
-  width: 100%;
-  max-width: 1140px;
-  margin: 50px auto; /* Adjust spacing as needed */
-  overflow: hidden;
-}
-
-.product-video-slider .slider {
-  position: relative;
-}
-
-.product-video-slider .slide-wrapper {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.product-video-slider .slide {
-  min-width: 100%;
-  box-sizing: border-box;
-}
-
-.product-video-slider .slide video {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Navigation Buttons */
-.product-video-slider button.prev,
-.product-video-slider button.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  border: none;
-  color: #fff;
-  font-size: 2rem;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.product-video-slider button.prev {
-  left: 10px;
-}
-
-.product-video-slider button.next {
-  right: 10px;
-}
-
-/* Optional: Adjust button appearance on hover */
-.product-video-slider button.prev:hover,
-.product-video-slider button.next:hover {
-  background: rgba(0, 0, 0, 0.8);
-}
-
-/* Navigation Buttons for Hero Video Slider */
-.hero-section button.prev-hero,
-.hero-section button.next-hero {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: #fff;
-    font-size: 2rem;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 5;
-}
-
-.hero-section button.prev-hero {
-    left: 20px;
-}
-
-.hero-section button.next-hero {
-    right: 20px;
-}
-
-/* Optional hover effects */
-.hero-section button.prev-hero:hover,
-.hero-section button.next-hero:hover {
-    background: rgba(0, 0, 0, 0.8);
-}
-
-/* Navigation Buttons for Hero Slider */
+/* Slider Navigation Buttons for Hero Section */
 .hero-section button.prev,
 .hero-section button.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: transparent; /* No background needed */
+  background: transparent;
   border: none;
   cursor: pointer;
   z-index: 10;
-  padding: 0; /* Remove extra padding */
+  padding: 0;
 }
 
 .hero-section button.prev {
@@ -333,19 +223,16 @@ header nav {
   right: 20px;
 }
 
-/* Set a consistent size for the icons */
 .hero-section button.prev img,
 .hero-section button.next img {
-  width: 40px;  /* Adjust as needed */
+  width: 40px;
   height: auto;
 }
 
-/* Flip the left arrow */
 .hero-section button.prev img {
   transform: scaleX(-1);
 }
 
-/* Optional hover effects */
 .hero-section button.prev:hover img,
 .hero-section button.next:hover img {
   opacity: 0.8;
@@ -353,11 +240,11 @@ header nav {
 
 /* Footer */
 footer {
-    text-align: center;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-    font-size: 0.9rem;
+  text-align: center;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  font-size: 0.9rem;
 }
 
 /* Social Icons Wrapper */
@@ -368,13 +255,11 @@ footer {
   display: flex;
   gap: 20px;
   z-index: 10;
-  /* Ensure the wrapper doesn't stretch undesirably */
   width: auto;
   height: auto;
 }
 
 .wrapper .icon {
-  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -393,12 +278,11 @@ footer {
   background: #fff;
   border-radius: 50%;
   box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   text-align: center;
   overflow: hidden;
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* Constrain the icon images to 60x60px */
 .wrapper .icon span img {
   width: 100%;
   height: 100%;
@@ -421,7 +305,7 @@ footer {
   background: #0088cc;
 }
 
-/* Tooltip Styling */
+/* Tooltip for Social Icons */
 .wrapper .icon .tooltip {
   position: absolute;
   bottom: 80px;
@@ -434,9 +318,11 @@ footer {
   pointer-events: none;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+
 .wrapper .icon:hover .tooltip {
   opacity: 1;
 }
+
 .wrapper .icon .tooltip::before {
   content: "";
   position: absolute;
@@ -449,135 +335,60 @@ footer {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Responsive adjustments */
+/* RESPONSIVE: Mobile Adjustments */
 @media (max-width: 768px) {
-    .header-container {
-        padding: 15px 20px;
-    }
+  .header-container {
+    padding: 15px 20px;
+  }
 
-    /* Show hamburger menu on mobile */
-    .hamburger {
-        display: flex;
-    }
+  /* Display hamburger or simplified nav if needed */
+  .nav-menu {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
 
-    /* Hide standard nav-menu by default */
-    .nav-menu {
-        position: absolute;
-        top: 70px; /* Adjust based on header height */
-        right: 20px;
-        background: transparent; /* ensures transparency on mobile */
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-20px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
+  .hero-text h2 {
+    font-size: 2.2rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
 
-    /* When hamburger toggled, add an "active" class to nav-menu */
-    .nav-menu.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
+  .products-container {
+    padding: 30px 10px;
+  }
 
-    .nav-menu li a {
-        font-size: 1.2rem;
-    }
+  .products {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 10px;
+  }
 
-    .hero-text h2 {
-        font-size: 2.2rem;
-    }
+  .product-card {
+    max-width: 100%;
+    margin: 0 auto;
+  }
 
-    .hero-text p {
-        font-size: 1rem;
-    }
+  /* Ensure images fill container */
+  .product-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
 
-    .products {
-        padding: 30px 10px;
-    }
-    
-    .products {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 10px;
-    }
-    
-    /* Expand product card to 100% width on mobile */
-    .product-card {
-        max-width: 100%;
-        margin: 0 auto;
-    }
-    
-    /* Make images larger inside the card */
-    .product-card img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-    
-    /* Adjust product info padding for mobile */
-    .product-info {
-        padding: 10px;
-        text-align: center;
-    }
-    
-    /* Increase font sizes if needed */
-    .product-info h3 {
-        font-size: 1.3rem;
-    }
-    .product-info p,
-    .product-info .price {
-        font-size: 1rem;
-    }
-}
+  .product-info {
+    padding: 10px;
+    text-align: center;
+  }
 
-.slide-wrapper {
-  display: flex;
-  transition: transform 0.5s ease;
-  height: 100%;
-}
-
-.slide {
-  min-width: 100%;
-  box-sizing: border-box;
-  opacity: 0;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.slide.active {
-  opacity: 1;
-}
-
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  border: none;
-  color: #fff;
-  font-size: 2rem;
-  padding: 0.5em 1em;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.prev {
-  left: 20px;
-}
-
-.next {
-  right: 20px;
-}
-
-/* Ensure product images fill the container */
-.product-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.3s ease;
-  object-fit: cover; /* Ensures the image covers the container without distortion */
+  .product-info h3 {
+    font-size: 1.3rem;
+  }
+  .product-info p,
+  .product-info .price {
+    font-size: 1rem;
+  }
 }

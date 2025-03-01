@@ -298,7 +298,7 @@ header nav a.active {
     display: none; 
     width: 100%; 
     flex-direction: column; 
-    background: rgba(0, 0, 0, 0.8); 
+    background: transparent; /* Changed from rgba(0, 0, 0, 0.8) to transparent */
     position: absolute; 
     top: 60px; 
     left: 0; 
