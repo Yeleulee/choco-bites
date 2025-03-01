@@ -208,34 +208,28 @@ header {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: transparent;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent dark background */
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.5em 1em;
   border: none;
   cursor: pointer;
-  z-index: 10;
-  padding: 0;
+  z-index: 15; /* Ensure buttons are above overlay and video */
+  pointer-events: auto;  /* make sure pointer events are enabled */
 }
 
+/* Position each button on the left/right */
 .hero-section button.prev {
   left: 20px;
 }
-
 .hero-section button.next {
   right: 20px;
 }
 
-.hero-section button.prev img,
-.hero-section button.next img {
-  width: 40px;
-  height: auto;
-}
-
-.hero-section button.prev img {
-  transform: scaleX(-1);
-}
-
-.hero-section button.prev:hover img,
-.hero-section button.next:hover img {
-  opacity: 0.8;
+/* Optional: Add hover effects for better visual feedback */
+.hero-section button.prev:hover,
+.hero-section button.next:hover {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 /* Footer */
