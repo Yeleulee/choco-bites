@@ -51,34 +51,47 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Only initialize slider if slides exist (usually on larger devices)
     if (totalSlides > 0) {
+        console.log("Total slides found:", totalSlides);
+
         // Function to update the visible slide
         function updateSlider() {
             slides.forEach((slide, index) => {
                 slide.classList.toggle('active', index === currentSlide);
             });
+            console.log("Active slide index:", currentSlide);
         }
-    
+
         // Change slide in given direction (+1 for next, -1 for previous)
         function changeSlide(direction) {
             currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            console.log("Changed slide to:", currentSlide);
             updateSlider();
         }
-    
+
         // Attach event listeners to the buttons
         const prevButton = document.querySelector('.prev');
         const nextButton = document.querySelector('.next');
-    
+
         if (prevButton) {
             prevButton.addEventListener('click', function() {
                 changeSlide(-1);
             });
+        } else {
+            console.error("Prev button not found!");
         }
-    
+
         if (nextButton) {
             nextButton.addEventListener('click', function() {
                 changeSlide(1);
             });
+        } else {
+            console.error("Next button not found!");
         }
+
+        // Initialize slider
+        updateSlider();
+    } else {
+        console.error("No slides found!");
     }
 });
 
