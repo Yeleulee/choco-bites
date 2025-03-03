@@ -43,14 +43,15 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: transparent;
-  z-index: 10;
+  background: transparent; /* Fully transparent */
+  box-shadow: none; /* Remove shadow */
+  z-index: 20; /* Ensure header is above the video */
 }
 
 .site-header {
-  background: transparent; /* Make header background transparent */
+  background: transparent; /* Fully transparent */
   padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: none; /* Remove shadow */
 }
 
 .header-container {
@@ -58,13 +59,16 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
-  z-index: 6;
+  background: transparent; /* Fully transparent */
+  box-shadow: none; /* Remove shadow */
+  z-index: 21; /* Ensure header container is above the video */
 }
 
 .brand img {
   width: 120px;
   transition: transform 0.3s ease;
-  background: transparent; /* Ensure logo background is transparent */
+  background: transparent; /* Fully transparent */
+  cursor: pointer; /* Add pointer cursor to indicate it's clickable */
 }
 .brand img:hover {
   transform: scale(1.1);
