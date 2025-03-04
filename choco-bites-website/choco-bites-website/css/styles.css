@@ -153,15 +153,12 @@ header nav a.active {
   box-shadow: 0 2px 10px rgba(0,0,0,0.3); 
   transition: transform 0.3s ease; 
   animation: textColorCycle 10s infinite alternate; 
-  /* Ensures the text stays in place on click */
 }
 
 @keyframes textColorCycle { 
   from { color: #fff; } 
   to { color: #f0c040; } 
 }
-
-
 
 .welcome-text:active {
   transform: none !important;
